@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_seller_enter_book_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.tommyspc.books.SellerEnterBookInfo">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Enter Book Edition"
+        android:ems="10"
+        android:layout_marginTop="41dp"
+        android:id="@+id/editText12"
+        android:layout_below="@+id/editText9"
+        android:layout_alignStart="@+id/editText9" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Enter Book Title"
+        android:ems="10"
+        android:layout_marginTop="80dp"
+        android:id="@+id/editText8"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/button3" />
+
+    <TextView
+        android:text="Book Title:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editText8"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:id="@+id/textView9"
+        android:layout_above="@+id/editText9"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:paddingTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Enter Class"
+        android:ems="10"
+        android:layout_marginTop="35dp"
+        android:id="@+id/editText11"
+        android:layout_below="@+id/editText12"
+        android:layout_alignStart="@+id/editText12" />
+
+    <TextView
+        android:text="Book Edition:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView11"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/editText12"
+        android:layout_alignStart="@+id/textView10"
+        android:layout_above="@+id/editText11"
+        android:paddingTop="10dp" />
+
+    <TextView
+        android:text="Class:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/editText11"
+        android:layout_alignStart="@+id/textView11"
+        android:layout_alignBottom="@+id/editText11"
+        android:layout_toStartOf="@+id/editText11"
+        android:paddingTop="10dp" />
+
+    <TextView
+        android:text="Author Name:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView10"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/editText9"
+        android:layout_alignStart="@+id/textView9"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:paddingTop="10dp" />
+
+    <Button
+        android:text="Cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Rent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:layout_alignBaseline="@+id/button3"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_toStartOf="@+id/button2" />
+
+    <Button
+        android:text="Sell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
+        android:id="@+id/button3"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/button"
+        android:layout_marginEnd="36dp" />
+
+    <TextView
+        android:text="For this book, I wish to:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView12"
+        android:textSize="18sp"
+        android:layout_above="@+id/button"
+        android:layout_alignStart="@+id/button3"
+        android:layout_marginStart="11dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Enter Author Name"
+        android:ems="10"
+        android:layout_marginTop="32dp"
+        android:id="@+id/editText9"
+        android:layout_below="@+id/editText8"
+        android:layout_alignStart="@+id/editText8" />
+
+</RelativeLayout>

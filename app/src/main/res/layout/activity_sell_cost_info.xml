@@ -35,7 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/button7" />
+        android:id="@+id/button7"
+        android:onClick="back" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -58,15 +59,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="53dp" />
 
-    <Button
-        android:text="Post It!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button8"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView3"
-        android:layout_marginBottom="42dp" />
-
     <TextView
         android:text="Price:"
         android:layout_width="wrap_content"
@@ -84,6 +76,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/button6"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/textView3" />
+        android:layout_toEndOf="@+id/textView3"
+        android:onClick="returnToMainMenu" />
+
+    <Button
+        android:text="Post It!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button8"
+        android:layout_marginBottom="43dp"
+        android:onClick="postIt"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView3" />
 
 </RelativeLayout>

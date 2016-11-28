@@ -99,16 +99,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/button2"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:text="Rent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:layout_alignBaseline="@+id/button3"
-        android:layout_alignBottom="@+id/button3"
-        android:layout_toStartOf="@+id/button2" />
+        android:layout_alignParentEnd="true"
+        android:onClick="returnToMainMenu" />
 
     <Button
         android:text="Sell"
@@ -118,7 +110,8 @@
         android:id="@+id/button3"
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/button"
-        android:layout_marginEnd="36dp" />
+        android:layout_marginEnd="36dp"
+        android:onClick="sell" />
 
     <TextView
         android:text="For this book, I wish to:"
@@ -140,5 +133,15 @@
         android:id="@+id/editText9"
         android:layout_below="@+id/editText8"
         android:layout_alignStart="@+id/editText8" />
+
+    <Button
+        android:text="Rent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:layout_alignBaseline="@+id/button3"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_toStartOf="@+id/button2"
+        android:onClick="rent" />
 
 </RelativeLayout>

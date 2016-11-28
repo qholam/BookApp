@@ -27,16 +27,8 @@
         android:id="@+id/Continue"
         android:layout_marginBottom="16dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="Take Picture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button12"
-        android:layout_marginBottom="59dp"
-        android:layout_above="@+id/Continue"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="confirm" />
 
     <ImageView
         android:layout_width="200dp"
@@ -46,5 +38,15 @@
         android:layout_above="@+id/button12"
         android:layout_alignEnd="@+id/textView5"
         android:layout_marginBottom="23dp" />
+
+    <Button
+        android:text="Take Picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button12"
+        android:layout_marginBottom="60dp"
+        android:layout_above="@+id/Continue"
+        android:layout_centerHorizontal="true"
+        android:onClick="takePicture" />
 
 </RelativeLayout>

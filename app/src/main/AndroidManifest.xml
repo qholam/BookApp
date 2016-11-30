@@ -18,7 +18,11 @@
         <activity android:name=".RentCostInfo" />
         <activity android:name=".BookPicture" />
         <activity android:name=".ConfirmationPage" />
-        <activity android:name=".MyBooksList"></activity>
+        <activity android:name=".MyBooksList" />
+        <activity
+            android:name=".MainMenuActivity"
+            android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar" />
+
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name">
@@ -36,10 +40,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".MainMenuActivity"
-            android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar"/>
     </application>
 
 </manifest>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:id="@+id/activity_mainmenu"
+    tools:context="com.example.tommyspc.books.MainMenuActivity"
+    >
+
+    <Button
+        android:text="Buyer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Buyer"
+        android:layout_weight="0.5"
+        android:background="@android:color/holo_red_dark" />
+
+    <Button
+        android:text="Seller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Seller"
+        android:layout_weight="0.50"
+        android:background="@android:color/holo_blue_light"
+        android:onClick="seller" />
+</LinearLayout>

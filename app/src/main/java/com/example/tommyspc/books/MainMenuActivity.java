@@ -19,4 +19,9 @@ public class MainMenuActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainmenu);
     }
+
+    public void seller(View view){
+        Intent intent = new Intent(this, SellerEnterBookInfo.class);
+        startActivity(intent);
+    }
 }

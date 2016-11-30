@@ -22,6 +22,6 @@ public class MainMenuActivity extends Activity {
 
     public void seller(View view){
         Intent intent = new Intent(this, SellerEnterBookInfo.class);
-        startActivity(intent); 
+        startActivity(intent);
     }
 }

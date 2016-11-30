@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:id="@+id/button4"
-        android:onClick="seller"
+        android:onClick="seller (MainActivity)"
         android:layout_below="@+id/button5"
         android:layout_alignStart="@+id/button5" />
 
@@ -38,16 +38,6 @@
         android:onClick="rent"
         android:layout_centerVertical="true"
         android:layout_alignStart="@+id/button4" />
-
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button9"
-        android:onClick="picture"
-        android:layout_below="@+id/button11"
-        android:layout_alignStart="@+id/button11"
-        android:layout_marginTop="61dp" />
 
     <Button
         android:text="Button"
@@ -79,4 +69,14 @@
         android:layout_marginStart="25dp"
         android:id="@+id/button16"
         android:onClick="main2" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button9"
+        android:onClick="picture"
+        android:layout_above="@+id/button14"
+        android:layout_alignStart="@+id/button11"
+        android:layout_marginBottom="37dp" />
 </RelativeLayout>

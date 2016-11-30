@@ -17,7 +17,7 @@ public class CommonButtons extends AppCompatActivity {
      * @param v
      */
     public void returnToMainMenu(View v){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MainMenuActivity.class);
         startActivity(intent);
     }
 

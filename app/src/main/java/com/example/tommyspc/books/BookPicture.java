@@ -1,14 +1,17 @@
 package com.example.tommyspc.books;
 
 import android.content.Context;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
+import android.widget.Toast;
 
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 
 public class BookPicture extends CommonButtons{
@@ -41,10 +44,19 @@ public class BookPicture extends CommonButtons{
         //TODO: save book to an actual database, currently we are saving it locally on  a text file
         try
         {
+            /*get book info*/
             String info = book.getInfo();
-            FileOutputStream fos = openFileOutput("books.txt", Context.MODE_APPEND);
-            fos.write(info.getBytes());
-            fos.close();
+
+            //open file for writing
+            OutputStreamWriter out = new OutputStreamWriter(openFileOutput("books.txt", MODE_APPEND));
+
+            //write book information to file
+            out.write(info);
+
+            //close file
+            out.close();
+
+            Toast.makeText(this,"Text Saved", Toast.LENGTH_LONG).show();
         }
         catch(IOException ioe)
         {

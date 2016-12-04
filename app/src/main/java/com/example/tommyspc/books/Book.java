@@ -23,10 +23,27 @@ public class Book {
      * @param author author of book
      * @param classId class this book is for
      */
-    public Book(String title, String author, String classId){
+    public Book(String title, String author, String classId, String edition){
         bookTitle = title;
         this.author = author;
         this.classId = classId;
+        this.edition = edition;
+    }
+
+    /**
+     * Prints out info on this book
+     */
+    public void printInfo(){
+        System.out.println("Title: " + bookTitle +
+                            " Author: " + author +
+                            " Edition: " + edition +
+                            " Class: " + classId +
+                            " ISBN: " + ISBN +
+                            " forSell: " + forSell +
+                            " forRent: " + forRent +
+                            " price: " + price +
+                            " rentDuration: " + rentDuration);
+
     }
 
     public String getEdition() {

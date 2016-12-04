@@ -14,21 +14,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Enter Book Edition"
-        android:ems="10"
-        android:layout_marginTop="41dp"
-        android:id="@+id/editText12"
-        android:layout_below="@+id/editText9"
-        android:layout_alignStart="@+id/editText9" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:text="Enter Book Title"
         android:ems="10"
         android:layout_marginTop="80dp"
-        android:id="@+id/editText8"
+        android:id="@+id/bookTitle"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/button3" />
 
@@ -36,11 +25,11 @@
         android:text="Book Title:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/editText8"
+        android:layout_alignTop="@+id/bookTitle"
         android:layout_alignParentStart="true"
         android:layout_marginStart="15dp"
         android:id="@+id/textView9"
-        android:layout_above="@+id/editText9"
+        android:layout_above="@+id/author"
         android:textAlignment="center"
         android:textSize="18sp"
         android:paddingTop="10dp" />
@@ -52,9 +41,9 @@
         android:text="Enter Class"
         android:ems="10"
         android:layout_marginTop="35dp"
-        android:id="@+id/editText11"
-        android:layout_below="@+id/editText12"
-        android:layout_alignStart="@+id/editText12" />
+        android:id="@+id/classId"
+        android:layout_below="@+id/edition"
+        android:layout_alignStart="@+id/edition" />
 
     <TextView
         android:text="Book Edition:"
@@ -63,9 +52,9 @@
         android:id="@+id/textView11"
         android:textAlignment="textStart"
         android:textSize="18sp"
-        android:layout_alignTop="@+id/editText12"
+        android:layout_alignTop="@+id/edition"
         android:layout_alignStart="@+id/textView10"
-        android:layout_above="@+id/editText11"
+        android:layout_above="@+id/classId"
         android:paddingTop="10dp" />
 
     <TextView
@@ -75,10 +64,10 @@
         android:id="@+id/textView8"
         android:textAlignment="textStart"
         android:textSize="18sp"
-        android:layout_alignTop="@+id/editText11"
+        android:layout_alignTop="@+id/classId"
         android:layout_alignStart="@+id/textView11"
-        android:layout_alignBottom="@+id/editText11"
-        android:layout_toStartOf="@+id/editText11"
+        android:layout_alignBottom="@+id/classId"
+        android:layout_toStartOf="@+id/classId"
         android:paddingTop="10dp" />
 
     <TextView
@@ -88,7 +77,7 @@
         android:id="@+id/textView10"
         android:textAlignment="textStart"
         android:textSize="18sp"
-        android:layout_alignTop="@+id/editText9"
+        android:layout_alignTop="@+id/author"
         android:layout_alignStart="@+id/textView9"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:paddingTop="10dp" />
@@ -130,9 +119,9 @@
         android:text="Enter Author Name"
         android:ems="10"
         android:layout_marginTop="32dp"
-        android:id="@+id/editText9"
-        android:layout_below="@+id/editText8"
-        android:layout_alignStart="@+id/editText8" />
+        android:id="@+id/author"
+        android:layout_below="@+id/bookTitle"
+        android:layout_alignStart="@+id/bookTitle" />
 
     <Button
         android:text="Rent"
@@ -143,5 +132,16 @@
         android:layout_alignBottom="@+id/button3"
         android:layout_toStartOf="@+id/button2"
         android:onClick="rent" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Enter Book Edition"
+        android:ems="10"
+        android:layout_marginTop="40dp"
+        android:id="@+id/edition"
+        android:layout_below="@+id/author"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

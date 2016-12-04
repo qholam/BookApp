@@ -44,7 +44,7 @@
         android:inputType="textPersonName"
         android:text="Enter a price"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/loanTime"
         android:layout_alignBaseline="@+id/textView6"
         android:layout_alignBottom="@+id/textView6"
         android:layout_toEndOf="@+id/button7" />

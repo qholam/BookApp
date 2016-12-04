@@ -26,6 +26,7 @@ public class SellerEnterBookInfo extends CommonButtons {
         book.setForSell(true);
 
         Intent intent = new Intent(this, SellCostInfo.class);
+        intent.putExtra("book", book);
         startActivity(intent);
     }
 
@@ -41,6 +42,7 @@ public class SellerEnterBookInfo extends CommonButtons {
         book.setForRent(true);
 
         Intent intent = new Intent(this, RentCostInfo.class);
+        intent.putExtra("book", book);
         startActivity(intent);
     }
 

@@ -1,11 +1,14 @@
 package com.example.tommyspc.books;
 
+import java.io.Serializable;
+
 /**
  * Created by Tommy's PC on 12/3/2016.
  * This represents a book in our database.
  */
 
-public class Book {
+@SuppressWarnings("serial")
+public class Book implements Serializable{
     /*properties of the book*/
     String bookTitle;
     String author;

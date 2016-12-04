@@ -97,21 +97,19 @@
         android:inputType="textPersonName"
         android:text="Enter loan time"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/loanTime"
         android:layout_alignBaseline="@+id/textView4"
         android:layout_alignBottom="@+id/textView4"
-        android:layout_toEndOf="@+id/textView4"
-        android:layout_marginStart="24dp" />
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Enter a price"
+        android:text="Price"
         android:ems="10"
-        android:id="@+id/editText"
-        android:layout_alignBaseline="@+id/textView6"
-        android:layout_alignBottom="@+id/textView6"
-        android:layout_alignStart="@+id/editText2" />
+        android:layout_below="@+id/loanTime"
+        android:layout_toEndOf="@+id/textView4"
+        android:id="@+id/price" />
 
 </RelativeLayout>

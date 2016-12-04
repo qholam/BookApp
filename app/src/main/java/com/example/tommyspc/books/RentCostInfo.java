@@ -25,6 +25,7 @@ public class RentCostInfo extends CommonButtons {
         Book book = (Book) i.getSerializableExtra("book");
 
         /*Save info entered from this page*/
+        //todo: error checking if user doesn't enter an int
         EditText priceView = (EditText) findViewById(R.id.price);
         int price = Integer.parseInt(priceView.getText().toString());
         book.setPrice(price);

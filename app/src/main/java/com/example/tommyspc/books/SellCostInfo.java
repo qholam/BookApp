@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static android.text.TextUtils.isEmpty;
 
 public class SellCostInfo extends CommonButtons{
 
@@ -29,13 +32,18 @@ public class SellCostInfo extends CommonButtons{
         /*Save info entered from this page*/
         //todo: error checking if user enters nothing
         EditText priceView = (EditText) findViewById(R.id.price);
-        int price = Integer.parseInt(priceView.getText().toString());
-        book.setPrice(price);
+        if (isEmpty(priceView.getText().toString())) {
+            Toast.makeText(this, "Please enter a loan duration and price", Toast.LENGTH_SHORT).show();
+        }
+        else {/*ensures text field is not empty*/
+            int price = Integer.parseInt(priceView.getText().toString());
+            book.setPrice(price);
 
-        /*pass book object to page that will handle taking a picture of the book*/
-        Intent intent = new Intent(this, BookPicture.class);
-        intent.putExtra("book", book);
-        startActivity(intent);
+            /*pass book object to page that will handle taking a picture of the book*/
+            Intent intent = new Intent(this, BookPicture.class);
+            intent.putExtra("book", book);
+            startActivity(intent);
+        }
     }
 
     public void updateViews(){

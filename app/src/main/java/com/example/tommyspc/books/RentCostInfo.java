@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static android.text.TextUtils.isEmpty;
 
 public class RentCostInfo extends CommonButtons {
 
@@ -27,19 +30,23 @@ public class RentCostInfo extends CommonButtons {
         Book book = (Book) i.getSerializableExtra("book");
 
         /*Save info entered from this page*/
-        //todo: error checking if user doesn't enter an int
         EditText priceView = (EditText) findViewById(R.id.price);
-        int price = Integer.parseInt(priceView.getText().toString());
-        book.setPrice(price);
+        if (isEmpty(priceView.getText().toString())) {
+            Toast.makeText(this, "Please enter a price", Toast.LENGTH_SHORT).show();
+        }
+        else {/*There are no empty fields*/
+            int price = Integer.parseInt(priceView.getText().toString());
+            book.setPrice(price);
 
-        EditText loanView = (EditText) findViewById(R.id.loanTime);
-        int loanTime = Integer.parseInt(loanView.getText().toString());
-        book.setRentDuration(loanTime);
+            EditText loanView = (EditText) findViewById(R.id.loanTime);
+            int loanTime = Integer.parseInt(loanView.getText().toString());
+            book.setRentDuration(loanTime);
 
-        /*pass book object to page that will handle taking a picture of the book*/
-        Intent intent = new Intent(this, BookPicture.class);
-        intent.putExtra("book", book);
-        startActivity(intent);
+            /*pass book object to page that will handle taking a picture of the book*/
+            Intent intent = new Intent(this, BookPicture.class);
+            intent.putExtra("book", book);
+            startActivity(intent);
+        }
     }
 
     public void updateViews(){

@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import static android.text.TextUtils.isEmpty;
 
 public class SellerEnterBookInfo extends CommonButtons {
 
@@ -19,15 +22,20 @@ public class SellerEnterBookInfo extends CommonButtons {
      * @param v
      */
     public void sell(View v){
-        /*create the book*/
-        Book book = createBook();
+        if(notEmpty()) {
+            /*create the book*/
+            Book book = createBook();
 
-        /*set as for sell*/
-        book.setForSell(true);
+            /*set as for sell*/
+            book.setForSell(true);
 
-        Intent intent = new Intent(this, SellCostInfo.class);
-        intent.putExtra("book", book);
-        startActivity(intent);
+            Intent intent = new Intent(this, SellCostInfo.class);
+            intent.putExtra("book", book);
+            startActivity(intent);
+        }
+        else{
+            Toast.makeText(this, "Please enter all fields", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
@@ -35,15 +43,20 @@ public class SellerEnterBookInfo extends CommonButtons {
      * @param v
      */
     public void rent(View v){
-        /*create the book*/
-        Book book = createBook();
+        if(notEmpty()) {
+            /*create the book*/
+            Book book = createBook();
 
-        /*set as for sell*/
-        book.setForRent(true);
+            /*set as for sell*/
+            book.setForRent(true);
 
-        Intent intent = new Intent(this, RentCostInfo.class);
-        intent.putExtra("book", book);
-        startActivity(intent);
+            Intent intent = new Intent(this, RentCostInfo.class);
+            intent.putExtra("book", book);
+            startActivity(intent);
+        }
+        else{
+            Toast.makeText(this, "Please enter all fields", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
@@ -65,6 +78,20 @@ public class SellerEnterBookInfo extends CommonButtons {
         Book book = new Book(title, author, classId, edition);
 
         return book;
+    }
+
+    private boolean notEmpty(){
+        /*get info that user entered*/
+        EditText titleView = (EditText) findViewById(R.id.bookTitle);
+        EditText authorView = (EditText) findViewById(R.id.author);
+        EditText classView = (EditText) findViewById(R.id.classId);
+        EditText editionView = (EditText) findViewById(R.id.edition);
+
+        if(isEmpty(titleView.getText().toString()) || isEmpty(editionView.getText().toString()) || isEmpty(classView.getText().toString()) || isEmpty(authorView.getText().toString())){
+            return false;
+        }
+
+        return true;
     }
 
 }

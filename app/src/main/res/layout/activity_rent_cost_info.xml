@@ -17,16 +17,16 @@
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:id="@+id/textView2"
+        android:id="@+id/title"
         android:textSize="18sp" />
 
     <TextView
         android:text="By Author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
-        android:id="@+id/textView3"
+        android:layout_below="@+id/title"
+        android:layout_alignStart="@+id/title"
+        android:id="@+id/author"
         android:textSize="18sp" />
 
     <Button
@@ -54,9 +54,51 @@
         android:layout_height="wrap_content"
         android:id="@+id/button8"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView3"
+        android:layout_alignStart="@+id/author"
         android:layout_marginBottom="42dp"
         android:onClick="postIt" />
+
+    <Button
+        android:text="Cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button6"
+        android:onClick="returnToMainMenu"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/textView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text=""
+        android:hint="Enter loan time"
+        android:ems="10"
+        android:id="@+id/loanTime"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Price:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:textSize="18sp"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/loanTime"
+        android:layout_alignStart="@+id/textView4" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text=""
+        android:hint="Price"
+        android:ems="10"
+        android:id="@+id/price"
+        android:layout_below="@+id/loanTime"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:text="Loan Duration:"
@@ -66,50 +108,7 @@
         android:textSize="18sp"
         android:paddingTop="10dp"
         android:layout_marginTop="82dp"
-        android:layout_below="@+id/textView3"
-        android:layout_toStartOf="@+id/button8" />
-
-    <Button
-        android:text="Cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button6"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="25dp"
-        android:layout_toEndOf="@+id/textView3"
-        android:onClick="returnToMainMenu" />
-
-    <TextView
-        android:text="Price:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView6"
-        android:textSize="18sp"
-        android:paddingTop="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Enter loan time"
-        android:ems="10"
-        android:id="@+id/loanTime"
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Price"
-        android:ems="10"
-        android:layout_below="@+id/loanTime"
-        android:layout_toEndOf="@+id/textView4"
-        android:id="@+id/price" />
+        android:layout_below="@+id/author"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

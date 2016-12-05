@@ -17,16 +17,16 @@
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:id="@+id/textView2"
+        android:id="@+id/title"
         android:textSize="18sp" />
 
     <TextView
         android:text="By Author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
-        android:id="@+id/textView3"
+        android:layout_below="@+id/title"
+        android:layout_alignStart="@+id/title"
+        android:id="@+id/author"
         android:textSize="18sp" />
 
     <Button
@@ -41,10 +41,12 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Enter a price"
+        android:inputType="number"
+        android:text=""
+        android:hint="Enter a price"
         android:ems="10"
-        android:id="@+id/loanTime"
+        android:id="@+id/price"
+        android:selectAllOnFocus="true"
         android:layout_alignBaseline="@+id/textView6"
         android:layout_alignBottom="@+id/textView6"
         android:layout_toEndOf="@+id/button7" />
@@ -67,7 +69,7 @@
         android:textSize="18sp"
         android:paddingTop="10dp"
         android:layout_marginTop="82dp"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/author"
         android:layout_toStartOf="@+id/textView" />
 
     <Button
@@ -76,7 +78,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/button6"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/textView3"
+        android:layout_toEndOf="@+id/author"
         android:onClick="returnToMainMenu" />
 
     <Button
@@ -87,6 +89,6 @@
         android:layout_marginBottom="43dp"
         android:onClick="postIt"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView3" />
+        android:layout_alignStart="@+id/author" />
 
 </RelativeLayout>

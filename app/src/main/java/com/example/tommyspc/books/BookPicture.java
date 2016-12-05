@@ -8,9 +8,14 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 
@@ -45,16 +50,17 @@ public class BookPicture extends CommonButtons{
         try
         {
             /*get book info*/
-            String info = book.getInfo();
+            String info = book.getInfo() + "\n";
 
-            //open file for writing
-            OutputStreamWriter out = new OutputStreamWriter(openFileOutput("books.txt", MODE_APPEND));
-
-            //write book information to file
-            out.write(info);
-
-            //close file
-            out.close();
+            /*save book to text file*/
+            File path = this.getApplication().getFilesDir();
+            File file = new File(path, "books.txt");
+            FileOutputStream stream = new FileOutputStream(file, true);
+            try {
+                stream.write(info.getBytes());
+            } finally {
+                stream.close();
+            }
 
             Toast.makeText(this,"Text Saved", Toast.LENGTH_LONG).show();
         }

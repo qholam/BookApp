@@ -66,6 +66,7 @@ public class Book implements Serializable{
         return info;
     }
 
+
     public String getEdition() {
         return edition;
     }

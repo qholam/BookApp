@@ -50,7 +50,7 @@ public class BookPicture extends CommonButtons{
         try
         {
             /*get book info*/
-            String info = book.getInfo() + "\n";
+            String info = book.getInfo() + "\n\n";
 
             /*save book to text file*/
             File path = this.getApplication().getFilesDir();

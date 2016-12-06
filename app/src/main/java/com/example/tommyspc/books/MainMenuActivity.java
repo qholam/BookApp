@@ -24,4 +24,9 @@ public class MainMenuActivity extends Activity {
         Intent intent = new Intent(this, SellerEnterBookInfo.class);
         startActivity(intent);
     }
+
+    public void buyer(View view){
+        Intent intent = new Intent(this, SearchForBook.class);
+        startActivity(intent);
+    }
 }

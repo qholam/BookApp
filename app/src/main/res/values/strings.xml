@@ -14,5 +14,6 @@
         completions."
     </string>
     <string name="splash_message">Welcome to BookApp</string>
+    <string name="title_activity_search_for_book">SearchForBook</string>
 
 </resources>

@@ -23,24 +23,26 @@
         <activity
             android:name=".MainMenuActivity"
             android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar" />
-
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SplashActivity"
             android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SearchForBook" />
+        <activity android:name=".DisplaySearchResults"></activity>
     </application>
 
 </manifest>

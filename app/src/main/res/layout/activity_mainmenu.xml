@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/Buyer"
         android:layout_weight="0.5"
-        android:background="@android:color/holo_red_dark" />
+        android:background="@android:color/holo_red_dark"
+        android:onClick="buyer" />
 
     <Button
         android:text="Seller"

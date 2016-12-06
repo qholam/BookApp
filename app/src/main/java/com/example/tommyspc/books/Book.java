@@ -54,14 +54,14 @@ public class Book implements Serializable{
      */
     public String getInfo(){
         String info = "Title: " + bookTitle +
-                    " Author: " + author +
-                    " Edition: " + edition +
-                    " Class: " + classId +
-                    " ISBN: " + ISBN +
-                    " forSell: " + forSell +
-                    " forRent: " + forRent +
-                    " price: " + price +
-                    " rentDuration: " + rentDuration;
+                    " | Author: " + author +
+                    " | Edition: " + edition +
+                    " | Class: " + classId +
+                    " | ISBN: " + ISBN +
+                    " | forSell: " + forSell +
+                    " | forRent: " + forRent +
+                    " | price: " + price +
+                    " | rentDuration: " + rentDuration;
 
         return info;
     }

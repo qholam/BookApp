@@ -20,21 +20,13 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="For Rent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView16"
-        android:layout_alignStart="@+id/textView16"
-        android:layout_marginTop="11dp"
-        android:id="@+id/button18" />
-
-    <Button
         android:text="For Sale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button18"
         android:layout_alignEnd="@+id/textView16"
-        android:id="@+id/button19" />
+        android:id="@+id/button19"
+        android:onClick="displaySell" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,4 +45,14 @@
         android:layout_marginStart="10dp"
         android:id="@+id/button20"
         android:onClick="goBack" />
+
+    <Button
+        android:text="For Rent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:id="@+id/button18"
+        android:layout_below="@+id/textView16"
+        android:layout_alignStart="@+id/textView16"
+        android:onClick="displayRent" />
 </RelativeLayout>

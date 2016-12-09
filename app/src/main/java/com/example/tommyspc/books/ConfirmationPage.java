@@ -25,24 +25,29 @@ public class ConfirmationPage extends AppCompatActivity {
         //todo: remove this code below, it is currently just used to see if books save
         /*read from text file books are saved in and print*/
         File path = this.getApplication().getFilesDir();
-        File file = new File(path, "books.txt");
+        File filesell = new File(path, "booksforsell.txt");
+        File filerent = new File(path, "booksforrent.txt");
 
-        int length = (int) file.length();
+        int length = (int) filesell.length();
+        int length2 = (int) filerent.length();
 
         byte[] bytes = new byte[length];
-
+        byte[] bytes2 = new byte[length2];
 
         try {
-            FileInputStream in = new FileInputStream(file);
+            FileInputStream in = new FileInputStream(filesell);
             in.read(bytes);
             in.close();
+            FileInputStream in2 = new FileInputStream(filerent);
+            in2.read(bytes2);
+            in2.close();
         }
         catch(IOException io){
 
         }
 
 
-        String contents = new String(bytes);
+        String contents = new String(bytes) + new String(bytes2);
 
         System.out.println(contents);
     }

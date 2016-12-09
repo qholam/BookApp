@@ -30,24 +30,29 @@ public class MyBooksList extends CommonButtons {
         //todo: display book a user owns based on a database, currently we are using a text file
         /*read from text file books are saved in and print*/
         File path = this.getApplication().getFilesDir();
-        File file = new File(path, "books.txt");
+        File filesell = new File(path, "booksforsell.txt");
+        File filerent = new File(path, "booksforrent.txt");
 
-        int length = (int) file.length();
+        int length = (int) filesell.length();
+        int length2 = (int) filerent.length();
 
         byte[] bytes = new byte[length];
-
+        byte[] bytes2 = new byte[length2];
 
         try {
-            FileInputStream in = new FileInputStream(file);
+            FileInputStream in = new FileInputStream(filesell);
             in.read(bytes);
             in.close();
+            FileInputStream in2 = new FileInputStream(filerent);
+            in2.read(bytes2);
+            in2.close();
         }
         catch(IOException io){
 
         }
 
 
-        String contents = new String(bytes);
+        String contents = new String(bytes) + new String(bytes2);
 
         TextView booksView = (TextView) findViewById(R.id.books);
         booksView.setText(contents);

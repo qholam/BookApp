@@ -53,8 +53,13 @@ public class BookPicture extends CommonButtons{
             String info = book.getInfo() + "\n\n";
 
             /*save book to text file*/
+            String filename = "booksforsell.txt";
+            if(book.isForRent())
+                filename = "booksforrent.txt";
             File path = this.getApplication().getFilesDir();
-            File file = new File(path, "books.txt");
+            File file = new File(path, filename);
+            if(!file.exists())
+                file.createNewFile();
             FileOutputStream stream = new FileOutputStream(file, true);
             try {
                 stream.write(info.getBytes());

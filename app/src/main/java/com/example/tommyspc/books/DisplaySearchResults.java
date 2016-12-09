@@ -22,7 +22,7 @@ public class DisplaySearchResults extends CommonButtons {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_search_results);
 
-        displayResults();
+        displayResults(0);
     }
 
     public void goBack(View v){
@@ -33,7 +33,7 @@ public class DisplaySearchResults extends CommonButtons {
     /**
      * Displays results based on the search parameters provided by the intent
      */
-    private void displayResults(){
+    private void displayResults(int i){
         /*get intent*/
         Intent intent = this.getIntent();
 
@@ -45,8 +45,15 @@ public class DisplaySearchResults extends CommonButtons {
 
         //todo: come up with a better way to search. currently we only consider title and author
         /*Open file and search for all listings that match these parameters*/
+        String filename;
+        if(i == 0){
+            filename = "booksforsell.txt";
+        }
+        else{
+            filename = "booksforrent.txt";
+        }
         File path = this.getApplication().getFilesDir();
-        File file = new File(path, "books.txt");
+        File file = new File(path, filename);
         List<String> results = new ArrayList<String>();/*holds all the listings that match the search parameters*/
 
         try {
@@ -84,5 +91,13 @@ public class DisplaySearchResults extends CommonButtons {
         }
 
         return b;
+    }
+
+    public void displayRent(View v){
+        displayResults(1);
+    }
+
+    public void displaySell(View v){
+        displayResults(0);
     }
 }

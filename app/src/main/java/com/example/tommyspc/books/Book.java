@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 
 @SuppressWarnings("serial")
-public class Book implements Serializable{
+public class Book implements Serializable{ 
     /*properties of the book*/
     String bookTitle;
     String author;

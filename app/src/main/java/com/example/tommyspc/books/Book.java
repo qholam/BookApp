@@ -75,6 +75,7 @@ public class Book implements Serializable{
     /**
      * Adds this book to SQLite Database
      */
+    //todo everything is saved locally currently, need to save to cloud
     public void save(Context c){
         BookDbHelper mDbHelper = new BookDbHelper(c);
         //get data repo in write mode

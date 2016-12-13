@@ -1,6 +1,8 @@
 package com.example.tommyspc.books;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,54 +45,84 @@ public class DisplaySearchResults extends CommonButtons {
         String edition = intent.getStringExtra("edition");
         String classId = intent.getStringExtra("class");
 
-        //todo: come up with a better way to search. currently we only consider title and author
-        /*Open file and search for all listings that match these parameters*/
-        String filename;
+        /*search SQL database*/
+        String status;
+        if(i == 0)
+            status = "sell";
+        else
+            status = "rent";
+
+        BookDbHelper mDbHelper = new BookDbHelper(this);
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        // Define a projection that specifies which columns from the database
+        // you will actually use after this query.
+        String[] projection;
         if(i == 0){
-            filename = "booksforsell.txt";
+            projection = new String[]{
+                    BookContract.BookEntry.COLUMN_TITLE,
+                    BookContract.BookEntry.COLUMN_AUTHOR,
+                    BookContract.BookEntry.COLUMN_CLASS,
+                    BookContract.BookEntry.COLUMN_PRICE
+            };
         }
         else{
-            filename = "booksforrent.txt";
+            projection = new String[]{
+                    BookContract.BookEntry.COLUMN_TITLE,
+                    BookContract.BookEntry.COLUMN_AUTHOR,
+                    BookContract.BookEntry.COLUMN_CLASS,
+                    BookContract.BookEntry.COLUMN_PRICE,
+                    BookContract.BookEntry.COLUMN_RENT_DURATION
+            };
         }
-        File path = this.getApplication().getFilesDir();
-        File file = new File(path, filename);
-        List<String> results = new ArrayList<String>();/*holds all the listings that match the search parameters*/
 
-        try {
-            FileInputStream is = new FileInputStream(file);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-            String line = reader.readLine();
-            while (line != null) {/*read through line by line*/
-                line = reader.readLine();
+        // Filter results based on search criteria
+        //todo come up with a better search algorithim
+        String selection = BookContract.BookEntry.COLUMN_TITLE + " = ? AND " +
+                BookContract.BookEntry.COLUMN_AUTHOR + " = ? AND " +
+                BookContract.BookEntry.COLUMN_STATUS + " = ?";
+        String[] selectionArgs;
+        if(i == 0){
+            selectionArgs = new String[]{
+                    title,
+                    author,
+                    "sell"
+            };
+        }
+        else{
+            selectionArgs = new String[]{
+                    title,
+                    author,
+                    "rent"
+            };
+        }
 
-                /*check if this listing matches the search parameters, if it does then add it to our arraylist*/
-                if(line != null && meetsCriteria(line, author, title)){
-                    results.add(line);
-                }
-            }
-        }
-        catch(IOException io){
-            //todo: do something here if theres an error
-        }
+        Cursor c = db.query(
+                BookContract.BookEntry.TABLE_NAME,        // The table to query
+                projection,                               // The columns to return
+                selection,                                // The columns for the WHERE clause
+                selectionArgs,                            // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                null                                      // The sort order
+        );
 
         /*display search results*/
         StringBuilder builder = new StringBuilder();
-        TextView books = (TextView) findViewById(R.id.bookList);
-        for (String s : results) {
+        c.moveToFirst();
+        while(!c.isAfterLast()){
+            String s = "Title: " + c.getString(c.getColumnIndexOrThrow(BookContract.BookEntry.COLUMN_TITLE)) +
+                    " || Author: " + c.getString(c.getColumnIndexOrThrow(BookContract.BookEntry.COLUMN_AUTHOR)) +
+                    " || Price: " + c.getString(c.getColumnIndexOrThrow(BookContract.BookEntry.COLUMN_PRICE));
+            if(i == 1)
+                s += " || Rent Duration: " + c.getString(c.getColumnIndexOrThrow(BookContract.BookEntry.COLUMN_RENT_DURATION));
+
             builder.append(s).append("\n\n");
+
+            c.moveToNext();
         }
+        TextView books = (TextView) findViewById(R.id.bookList);
         books.setText(builder.toString());
-    }
-
-    private boolean meetsCriteria(String str, String author, String title){
-        boolean b = false;
-
-        String[] parts = str.split("\\|");
-        if(parts.length > 1 && parts[0].toLowerCase().contains(title.toLowerCase()) && parts[1].toLowerCase().contains(author.toLowerCase())) {
-            b = true;
-        }
-
-        return b;
     }
 
     public void displayRent(View v){

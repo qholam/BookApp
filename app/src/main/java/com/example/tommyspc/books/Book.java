@@ -1,5 +1,9 @@
 package com.example.tommyspc.books;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
 import java.io.Serializable;
 
 /**
@@ -8,7 +12,7 @@ import java.io.Serializable;
  */
 
 @SuppressWarnings("serial")
-public class Book implements Serializable{ 
+public class Book implements Serializable{
     /*properties of the book*/
     String bookTitle;
     String author;
@@ -31,6 +35,8 @@ public class Book implements Serializable{
         this.author = author;
         this.classId = classId;
         this.edition = edition;
+        //todo add something for
+        ISBN = 0;
     }
 
     /**
@@ -64,6 +70,32 @@ public class Book implements Serializable{
                     " | rentDuration: " + rentDuration;
 
         return info;
+    }
+
+    /**
+     * Adds this book to SQLite Database
+     */
+    public void save(Context c){
+        BookDbHelper mDbHelper = new BookDbHelper(c);
+        //get data repo in write mode
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        //create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(BookContract.BookEntry.COLUMN_TITLE, this.getBookTitle());
+        values.put(BookContract.BookEntry.COLUMN_AUTHOR, this.getAuthor());
+        values.put(BookContract.BookEntry.COLUMN_EDITION, this.getEdition());
+        values.put(BookContract.BookEntry.COLUMN_CLASS, this.getClassId());
+        values.put(BookContract.BookEntry.COLUMN_ISBN, this.getISBN());
+        if(this.isForRent())
+            values.put(BookContract.BookEntry.COLUMN_STATUS, "rent");
+        else
+            values.put(BookContract.BookEntry.COLUMN_STATUS, "sell");
+        values.put(BookContract.BookEntry.COLUMN_PRICE, this.getPrice());
+        values.put(BookContract.BookEntry.COLUMN_RENT_DURATION, this.getRentDuration());
+
+        //insert the new row
+        db.insert(BookContract.BookEntry.TABLE_NAME, null, values);
     }
 
 

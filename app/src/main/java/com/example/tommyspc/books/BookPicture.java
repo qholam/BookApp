@@ -46,37 +46,7 @@ public class BookPicture extends CommonButtons{
         Book book = (Book) i.getSerializableExtra("book");
 
         /*Save book to database*/
-        //TODO: save book to an actual database, currently we are saving it locally on  a text file
-        try
-        {
-            /*get book info*/
-            String info = book.getInfo() + "\n\n";
-
-            /*save book to text file*/
-            String filename = "booksforsell.txt";
-            if(book.isForRent())
-                filename = "booksforrent.txt";
-            File path = this.getApplication().getFilesDir();
-            File file = new File(path, filename);
-            if(!file.exists())
-                file.createNewFile();
-            FileOutputStream stream = new FileOutputStream(file, true);
-            try {
-                stream.write(info.getBytes());
-            } finally {
-                stream.close();
-            }
-
-            Toast.makeText(this,"Text Saved", Toast.LENGTH_LONG).show();
-        }
-        catch(IOException ioe)
-        {
-            //TODO: do something if this fails
-            System.err.println("#$^@$^@#^#$^#$^IOException: " + ioe.getMessage());
-        }
-        catch(Exception e){
-            System.err.println("@$@4$#$Error: " + e.getMessage());
-        }
+        book.save(this);
 
         Intent intent = new Intent(this, ConfirmationPage.class);
         startActivity(intent);

@@ -117,12 +117,17 @@ public class DisplaySearchResults extends CommonButtons {
             if(i == 1)
                 s += " || Rent Duration: " + c.getString(c.getColumnIndexOrThrow(BookContract.BookEntry.COLUMN_RENT_DURATION));
 
+            //todo somehow allow seller to contact buyer. Whether it be having the buyers email dispalyed on this page or creating a whole new page that will show info on the book seller is interested in
+            s += " || Contact Info: N/A";
+
             builder.append(s).append("\n\n");
 
             c.moveToNext();
         }
         TextView books = (TextView) findViewById(R.id.bookList);
         books.setText(builder.toString());
+
+        //todo make each listing clickable, such that when clicked it will bring user to a new page that shows info on the back
     }
 
     public void displayRent(View v){

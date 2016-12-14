@@ -1,11 +1,14 @@
 package com.example.tommyspc.books;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -33,7 +36,23 @@ public class BookPicture extends CommonButtons{
      * @param v
      */
     public void takePicture(View v){
-        //todo: take picture and so stuff
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, 1);
+        }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        ImageView imgView = (ImageView) findViewById(R.id.imageView3);
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imgView.setImageBitmap(imageBitmap);
+        }
+
+        //todo save image to a gaallery database on cloud, so it can be displayed
     }
 
     /**
